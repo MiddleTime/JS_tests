@@ -1,0 +1,29 @@
+<html>
+  <head></head>
+  <body>
+    <script>
+		var x = 1;
+		function createTable(){
+			document.write("Таблица №"+x);
+			var table = "<table border='1'>";
+			table+="<tr><td>111</td><td>222</td><td>333</td></tr>";
+			table+="<tr><td>111</td><td>222</td><td>333</td></tr>";
+			table+="<tr><td>111</td><td>222</td><td>333</td></tr>";
+			table+="<tr><td>111</td><td>222</td><td>333</td></tr>";
+			table+="<tr><td>111</td><td>222</td><td>333</td></tr></table>";
+			x++;
+			return table;
+		}
+		
+		document.write(createTable());
+		document.write(createTable());
+		document.write(createTable());
+		document.write(createTable());
+		document.write(createTable());
+		
+		
+		
+		
+	</script>
+  </body>
+</html>  

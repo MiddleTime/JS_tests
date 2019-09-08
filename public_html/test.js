@@ -1,7 +1,7 @@
 
-            alert("Здравствуй user!!");
-            document.write("<h1> HEEELLOOOO </h1>");
-            console.log("Здравствуй школа!!");
+//            alert("Здравствуй user!!");
+//            document.write("<h1> HEEELLOOOO </h1>");
+//            console.log("Здравствуй школа!!");
             
 //            var name = prompt("Введите плиз ваше имя!");
 //            alert("Hello " + name);
@@ -9,12 +9,12 @@
             // var f = +prompt("Введите температуру в Фарренгейтах!");
              //+ впереди promt динамически преобразовывает строку в число. 
              
-//             var f = +prompt("Введите температуру в Фарренгейтах!");
-//             
-//             alert("Температура по Цельсию будет " + ((f-32)/1.8));
-////             
-//             document.write("<h1>  Температура по Цельсию будет " + Math.round(((f-32)/1.8)) + " </h1>");
-//            
+/*            var f = +prompt("Введите температуру в Фарренгейтах!");
+            
+            alert("Температура по Цельсию будет " + ((f-32)/1.8));
+             
+            document.write("<h1>  Температура по Цельсию будет " + Math.round(((f-32)/1.8)) + " </h1>");
+       */     
 //            var a = prompt("Введите значение переменной а ");
 //            var b = prompt("Введите значение переменной b ");
 //            
@@ -79,11 +79,11 @@
             ///////////////////
             
             //вывести тип данных
-            var age  = 0;
-            var isActive = true;
-            var email = null;
-            
-            console.log('age =' + age + '; type=' + typeof(age));
+//            var age  = 0;
+//            var isActive = true;
+//            var email = null;
+//            
+//            console.log('age =' + age + '; type=' + typeof(age));
             //вывести тип для isActive и Email
             
             
@@ -103,9 +103,9 @@
 //           document.write("<h1> Результат будет + "+  a + "</h1>" ); 
 
             //ОБЪЕКТЫ
-            //сущность, имеющая свойства и поведение. 
-            //дерево, дом, машина. у всего у чего есть свойства - объекты. 
-            var user = {
+//            сущность, имеющая свойства и поведение. 
+//            дерево, дом, машина. у всего у чего есть свойства - объекты. 
+ /*           var user = {
                 name:'Kolya',
                 age:20,
                 profession:'programmer'
@@ -113,6 +113,8 @@
             
             
             alert('name =' + user.name + "\nage = " + user.age);
-    
+    */
+
+    //alert(true&&true);
             
  

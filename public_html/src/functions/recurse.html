@@ -1,0 +1,38 @@
+<html>
+  <head></head>
+  <body>
+    <script>
+		//5! = 1*2*3*4*5 = 5 * 4!
+		//n! = n * (n-1)!
+		
+/*		function f(n){
+			if(n==1){
+				return 1;
+			}
+			return n * f(n-1);
+		}
+		*/
+		//f(3) = 3 * f(2) = 3 * 2 * 1 = 6
+		
+		//alert(f(5));
+		
+		function fibonachi(n, prev1 = 1, prev2 = 0){
+			var current = prev1 + prev2;
+
+			var fibonach_string = current + " ";
+
+			if(n > 1){
+				fibonach_string += fibonachi(n-1, current,prev1);
+				
+			}
+			return fibonach_string;
+
+		}
+
+		alert(fibonachi(10));
+
+
+		
+	</script>
+  </body>
+</html>  

@@ -1,0 +1,27 @@
+<html>
+  <head></head>
+  <body>
+    <script>
+		//ax^2+bx+c=0
+		function discr(a,b,c){
+			return b*b - 4 *a*c;
+		}
+		
+		function result(a,b,c){
+			if(discr(a,b,c)<0){
+				alert("Нет решений!");
+			}
+			else{
+				var x1 = (-b + Math.sqrt(discr(a,b,c)))/2*a;
+				var x2 = (-b - Math.sqrt(discr(a,b,c)))/2*a;
+				console.log("x1="+x1+"\nx2="+x2);
+			}
+		}
+		
+		result(1,2,3);
+		
+		
+		
+	</script>
+  </body>
+</html>  
