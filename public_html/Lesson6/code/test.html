@@ -1,0 +1,40 @@
+<script>
+	function myF(){
+		alert(111);
+	}
+</script>
+
+
+<button onclick="alert()">GO1</button>
+<button id="b2">GO2</button>
+<button id="b3">GO3</button>
+<button id="b4">GO4</button>
+<button onclick="console.log('B5');document.getElementById('b4').click()"> лик на B4</button>
+
+<script>
+	var b2 = document.getElementById('b2'); 
+	var b3 = document.getElementById('b3');
+	
+	b2.onclick=myF;
+	
+	b3.onclick = function(){
+		console.log('B3');
+	}
+	
+	var f1 = function(event){
+		console.log('F1-1');
+		console.log(event);		
+		console.log(event.type + ' на '+event.currentTarget);	
+	}
+	
+	function f2(){
+		console.log('F2');
+		b4.removeEventListener('click',f2);
+	}
+		
+	var b4 = document.getElementById('b4');
+	b4.addEventListener('click',f1);
+	b4.addEventListener('click',f2);
+	
+	
+</script>

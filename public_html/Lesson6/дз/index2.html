@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Шахматы</title>
+    <style>
+        table {
+            font-family: Impact, sans-serif;
+            font-size: 30px;
+            background-color: beige;
+            color: #3a2702;
+        }
+        td {
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr:nth-child(even) td:nth-child(odd) {
+            background-color: sandybrown;
+        }
+        tr:nth-child(odd) td:nth-child(even) {
+            background-color: sandybrown;
+        }
+        tr:last-child td:nth-child(odd),
+        tr:first-child td:nth-child(even){
+            background-color: beige;
+
+        }
+        tr:nth-child(even) td:first-child{
+            background-color: beige;
+        }
+        tr:nth-child(odd) td:last-child{
+            background-color: beige;
+            transform: rotate(180deg);
+        }
+        .perevorot{
+
+        }
+    </style>
+</head>
+<body>
+
+<script>
+  function chessdesk() {//Объявление функции шахматной доски
+      var newTable = document.createElement( 'table' ),// создание таблицы, но пока что без ячеек
+          name = [ '','A','B','C','D','E','F','G','H','' ],//массив с буква для разлиновки доски
+          blackFigs1 = [ '8','&#9820;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9820;','8' ],//массив черных фигур на 8 линии
+          blackFigs2 = [ '7','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','7' ],//массив черных фигур на 7 линии
+          whiteFigs1 = [ '1','&#9814;','&#9816;','&#9815;','&#9813;','&#9812;','&#9821;','&#9815;','&#9814;','1' ],//массив белых фигур на 1 линии
+          whiteFigs2 = [ '2','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','2' ];//массив белых фигур на 2 линии
+      for ( var i = 0, a = 9; i < 10, a >= 0; i++, a-- ) { //создание счетчика строк для доски   , i это строка / a номер элемента из массива
+          var newTr = newTable.insertRow(i); //создание строки
+          for ( var j = 0; j < 10   ; j++ ) {//создание счетчика для столбцов
+              var newTd = newTr.insertCell( j ); //создание ячейки строки
+              switch (i) { //цикл условий для расположения фигур на доске
+                  case 0: //для строки с индексом 0 выставляем буквы и переворачиваем
+                      newTd.innerText = name[ j ];
+                      newTd.style.transform="rotate(180deg)";
+                      break;
+                  case 1: //для строки с индексом 1 выставляем  массив фигур blackFigs1 строка 8
+                      newTd.innerHTML = blackFigs1[ j ];
+                      break;
+                  case 2://для строки с индексом 2 выставляем  массив фигур blackFigs2 строка 7
+                      newTd.innerHTML = blackFigs2[ j ];
+                      break;
+                  case 7://для строки с индексом 7 выставляем  массив фигур whiteFigs2 строка 1 пешки белых
+                      newTd.innerHTML = whiteFigs2[ j ];
+                      break;
+                  case 8://для строки с индексом 8 выставляем  массив фигур whiteFigs2 строка 2  белых
+                      newTd.innerHTML = whiteFigs1[ j ];
+                      break;
+                  case 9:
+                      newTd.innerText = name[ j ];//для строки с индексом 9 строки выставляем буквы
+
+                      break;
+                  default: // тут не понял цикла при проверке получается что проверяется столбец с индексом 0 и 9 и туда пишется значение "а" при увеличении номер строки "i" индекс "а" уменьшается
+                      if ( j === 0 || j === 9 ) {
+                          newTd.innerHTML = a;
+                      }
+                      break;
+              }
+          }
+      }
+
+      document.body.appendChild( newTable ); //вывод таблицы в тело body
+  };
+  chessdesk(); // вызов функции для создания таблицы
+</script>
+</body>
+</html>

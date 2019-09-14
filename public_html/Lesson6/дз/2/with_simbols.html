@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess</title>
+    <style>
+
+       .black {
+			margin: 0px;
+            background-color: #555555;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 60px;
+            float: left;
+			border: 1px solid black;
+			line-height: 45px;
+        }
+		
+        .white {
+			margin: 0px;
+            background-color: #999999;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 60px;
+            float:left;
+			border:1px solid black;
+			line-height: 45px;
+        }
+		
+		.blank {
+			margin: 0px;
+            background-color: white;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 40px;
+            float:left;
+			border:1px solid black;
+			line-height: 45px;
+        }
+		
+		.black_f {
+			color: black;
+        }
+		
+		.white_f {
+			color: white;
+        }
+		
+		.container {
+			padding:40px;
+        }
+		
+		.container1 {
+		
+			width:570px;
+			height:60px;
+			padding:0px;
+			margin:0px;
+        }
+
+    </style>
+</head>
+<body>
+    
+</body>
+
+
+<script type="text/javascript">
+
+
+       var cont = document.createElement('div');
+	   cont.id ="contr";
+	   cont.className="container";
+	   document.body.appendChild(cont);//<div id="contr" class="container"></div>
+	   
+	   var cont1 = document.createElement('div');
+	   cont1.id ="contr0";
+	   cont1.className="container1";
+	   document.getElementById("contr").appendChild(cont1);
+	   
+	   arr = ['','A','B','C','D','E','F','G','H'];
+	   
+		for (j=0; j<=8;j++){
+		var div = document.createElement('div');		
+		div.className = "blank";
+		div.innerText = arr[j];
+		document.getElementById("contr0").appendChild(div);
+		}
+		
+	for (i=0; i<=7;i++){
+	
+       var cont1 = document.createElement('div');
+	   cont1.id ="contr"+i;
+	   cont1.className="container1";
+	   document.getElementById("contr").appendChild(cont1);
+	   
+	   
+		for (j=0; j<=8;j++){
+		var div = document.createElement('div');
+
+		 var color = (j+i)%2!=0?"white ":"black ";
+
+		if(i<=1){
+			var colorf =  "black_f ";
+		}
+		else{
+			colorf = "white_f ";
+		}
+		 
+		if(j==0){
+		div.className = "blank";
+			div.innerText = i+1;
+		}
+		
+		else if((i==1||i==6)&(j>0)){
+			div.innerText = "п";
+			div.className = (color+colorf);
+		}
+		
+		else if((i==0||i==7)&(j==1||j==8)){
+			div.innerText = "л";
+			div.className = (color+colorf);
+		}
+		
+		else if((i==0||i==7)&(j==2||j==7)){
+			div.innerText = "к";
+			div.className = (color+colorf);
+		}
+		
+		else if((i==0||i==7)&(j==3||j==6)){
+			div.innerText = "с";
+			div.className = (color+colorf);
+		}
+		
+		else if((i==0||i==7)&(j==5)){
+			div.innerText = "К";
+			div.className = (color+colorf);
+		}
+		
+		else if((i==0||i==7)&(j==4)){
+			div.innerText = "Ф";
+			div.className = (color+colorf);
+		}
+		
+		else{
+			div.className = (color);
+		}
+		
+	 
+	   document.getElementById("contr"+i).appendChild(div);
+	   }
+	}
+
+</script>
+
+</html> 

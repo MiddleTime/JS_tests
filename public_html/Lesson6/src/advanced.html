@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head> 
+	<script>
+		window.onload = function(){
+			alert("Страница загружена");
+		}
+	
+		function myF(){
+			alert('Welcome');
+		}
+	</script>
+</head>
+<body>
+    <button onclick="myF()">Go</button>
+	<button id="b2">Go 2</button>
+	<button id="b3">Go 3</button>
+	<button id="b4">Go 4</button>
+	<button onclick="console.log('B5');document.getElementById('b4').click()">Клик на B4</button>
+	
+	<script>
+		var b2 = document.getElementById('b2');
+		var b3 = document.getElementById('b3');
+		b2.onclick=myF;
+		b3.onclick = function(){
+						console.log('B3');
+					 }
+					 
+		var f1 = function(event){
+			console.log("F1-1");
+			console.log(event);	
+			console.log(event.type + "на "+this+' '+event.currentTarget);	
+		}
+		
+		function f2(){
+			console.log('F2-1');
+			b4.removeEventListener('click',f2);
+		}
+		
+		
+		var b4 = document.getElementById('b4');
+		b4.addEventListener('click',f1);//по клику на b4 вызываем функцию f1
+		b4.addEventListener('click',f2);
+		
+	</script>
+	
+</body>
+</html>

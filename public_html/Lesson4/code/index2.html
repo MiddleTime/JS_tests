@@ -1,0 +1,54 @@
+<script>
+	var car = {
+		marka:'Audi',
+		model:'A6',
+		year:2017,
+		engineStarted:false
+	}
+	
+	car.color = 'black';
+	car.year = 2016;
+		
+	car.start = startEngine;
+	function startEngine(){
+		if(!this.engineStarted){
+			this.engineStarted=true;
+		}
+	}
+	car.start();
+	
+	
+	car.stop = function(){
+					if(this.engineStarted){
+						this.engineStarted=false;
+						
+					}
+			   }
+	car.stop();
+	
+	function road(obj,distance){
+		obj.distance = distance;
+	}
+	
+	road(car,1000);
+	
+	delete car.year;
+	
+	
+	for(var i in car){
+		console.log(i+":"+car[i]);
+	}
+	
+	var car2 = car;
+	car=null;
+	
+	console.log(car2);
+	
+	function user(){
+		for(var i = 0; i<arguments.length;i++){
+			console.log(arguments[i]);
+		}
+	}
+	user(1,2,3);
+	
+</script>

@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="jquery.js"></script>
+		<script>
+			var x = 0;
+			function f(){
+				var innerEl = "<option>&#9742;"+x+"</option>";
+				$("#num").append(innerEl);
+				x++;
+			}
+		</script>
+		
+		<style>
+			.red{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<p class='article'>Тест статьи 1</p>
+		<p id='x'>Тест статьи 2</p>
+		<p class='article'>Тест статьи 3</p>
+		
+		<select id="num"></select>
+		
+		<button onclick="f()">ОК</button>
+		
+		
+		<script>
+			$(".article").css("color","blue");			
+			//$(".article").addClass("red");		
+			
+		</script>
+		
+	
+	</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head> 
+	<script>
+		var c = 'blue';
+		
+		function f(){
+			document.getElementById("header").style.color=c;
+			c=='blue'?c='red':c='blue';
+			setTimeout('f()',1000);
+		}
+		
+		
+	</script>
+</head>
+<body onload="f()">
+    <h1 id="header">Заголовок</h1>
+	
+</body>
+</html>
