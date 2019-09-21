@@ -7,16 +7,16 @@
 		</style>
 	</head>
 	<body>
-		<h1 id="header">Заголовок</h1>	
+		<h1 id="header">Р—Р°РіРѕР»РѕРІРѕРє</h1>	
 		
-		<p class='article'>Тест статьи 1</p>
-		<p class='article'>Тест статьи 2</p>
-		<p class='article'>Тест статьи 3</p>
-		<p class='article'>Тест статьи 4</p>
-		<p class='article'>Тест статьи 5</p>
+		<p class='article'>РўРµСЃС‚ СЃС‚Р°С‚СЊРё 1</p>
+		<p class='article'>РўРµСЃС‚ СЃС‚Р°С‚СЊРё 2</p>
+		<p class='article'>РўРµСЃС‚ СЃС‚Р°С‚СЊРё 3</p>
+		<p class='article'>РўРµСЃС‚ СЃС‚Р°С‚СЊРё 4</p>
+		<p class='article'>РўРµСЃС‚ СЃС‚Р°С‚СЊРё 5</p>
 		
-		<div>Блок кода 
-			<div>Вложенный элемент</div>
+		<div>Р‘Р»РѕРє РєРѕРґР° 
+			<div>Р’Р»РѕР¶РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚</div>
 		</div>
 		
 		<ul id="list">
@@ -30,24 +30,24 @@
 	
 		<script>
 			
-			//вставка дочернего элемента
+			//РІСЃС‚Р°РІРєР° РґРѕС‡РµСЂРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°
 			var list = document.getElementById("list");
 			var newItem = document.createElement("li");//<li></li>
-			newItem.innerText = "Созданный элемент";
-			list.insertBefore(newItem,list.children[4]);
+			newItem.innerText = "РЎРѕР·РґР°РЅРЅС‹Р№ СЌР»РµРјРµРЅС‚";
+			list.insertBefore(newItem,list.children[0]);
 		    
-			//выведем все дочерние элементы тэга body
+			//РІС‹РІРµРґРµРј РІСЃРµ РґРѕС‡РµСЂРЅРёРµ СЌР»РµРјРµРЅС‚С‹ С‚СЌРіР° body
 			for(var i=0;i<document.body.childNodes.length;i++){
 				console.log(document.body.childNodes[i]);
 			}
 			
-			//Изменяем свойства тэга			
+			//РР·РјРµРЅСЏРµРј СЃРІРѕР№СЃС‚РІР° С‚СЌРіР°			
 			var h1 = document.getElementById("header");
-			h1.innerText="Новый заголовок!";
+			h1.innerText="РќРѕРІС‹Р№ Р·Р°РіРѕР»РѕРІРѕРє!";
 			h1.style.fontSize='60px';
 			h1.className='red';
 			
-			//Работа с группой классов
+			//Р Р°Р±РѕС‚Р° СЃ РіСЂСѓРїРїРѕР№ РєР»Р°СЃСЃРѕРІ
 			var article = document.getElementsByClassName("article");
 			
 			for(var i=0,size=16;i<article.length;i++,size+=10){
@@ -57,11 +57,10 @@
 				
 			}
 			
-			var elText = document.createTextNode("Новый элемент");
-			document.body.appendChild(elText);
+			var elText = document.createTextNode("РќРѕРІС‹Р№ СЌР»РµРјРµРЅС‚");
+			document.body.appendChild(elText);  
+
 		</script>
-		
-	
 	</body>
 </html>
 
