@@ -13,16 +13,7 @@ function init() {
     prepareGameField(); // Генерация поля
 
     var wrap = document.getElementsByClassName('wrap')[0];
-    // Подгоняем размер контейнера под игровое поле
     
-	/*
-	if (16 * (FIELD_SIZE_X + 1) < 380) {
-        wrap.style.width = '380px';
-    }
-    else {
-        wrap.style.width = (16 * (FIELD_SIZE_X + 1)).toString() + 'px';
-    }
-    */
     wrap.style.width = '400px';
     // События кнопок Старт и Новая игра
     document.getElementById('snake-start').addEventListener('click', startGame);
