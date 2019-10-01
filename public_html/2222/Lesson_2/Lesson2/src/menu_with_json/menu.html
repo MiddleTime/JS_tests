@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <script>
+        
+        /**
+         * Описываем базовый класс 
+         */
+        
+        function Container() {
+            
+            this.id = '';
+            this.className = '';
+            this.htmlCode = '';
+            
+        }
+
+        Container.prototype.render = function () {
+            
+            return this.htmlCode;
+            
+        };
+
+        /**
+         * Описываем класс меню
+         * @param my_id
+         * @param my_class
+         * @param my_items
+         * @constructor
+         */
+        function Menu(my_id, my_class, my_items) {
+            
+            Container.call(this);
+
+            this.id = my_id;
+            this.className = my_class;
+            this.items = my_items;
+            
+        }
+
+        Menu.prototype = Object.create(Container.prototype);
+        Menu.prototype.constructor = Menu;
+
+        Menu.prototype.render = function () {
+            var result = '<ul class="' + this.className + '" id="' + this.id + '">';
+            this.items.forEach(function (item) {
+                result += item.render();
+            });
+
+            // Также можно использовать и другую конструкцию, например на случай
+            // с объектами.
+            //
+            // for (var i = 0; i < this.items.length; i++) {
+            //     if(this.items[i] instanceof MenuItem){
+            //         result += this.items[i].render();
+            //     }
+            // }
+            //
+            // Результат будет одинаковый
+
+            result += '</ul>';
+            return result;
+        };
+
+        /**
+         * Описываем класс пунктов меню
+         * @param my_href
+         * @param my_name
+         * @constructor
+         */
+        function MenuItem(my_href, my_name) {
+            
+            Container.call(this);
+            this.href = my_href;
+            this.name = my_name;
+            
+        }
+
+        MenuItem.prototype = Object.create(Container.prototype);
+        MenuItem.prototype.constructor = MenuItem;
+
+        MenuItem.prototype.render = function () {
+            
+            return '<li><a href="' + this.href + '">' + this.name + '</a></li>';
+            
+        };
+
+        /**
+         * Инициализация меню
+         */
+        
+        window.onload = function () {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', './items.json', true);
+
+            xhr.onreadystatechange = function () {
+
+                if(xhr.readyState !== 4) return;
+
+                if (xhr.status !== 200) {
+                    
+                    console.log('Error', xhr.status, xhr.statusText);
+                    
+                } else {
+                    
+                    console.log('Ok!', xhr.statusText, xhr.responseText);
+
+                    var items2 = JSON.parse(xhr.responseText);
+                    var menuItems = [];
+
+                    for (var i = 0; i < items2.length; i++) {
+
+                        menuItems.push(new MenuItem(items2[i].href, items2[i].title));
+
+                    }
+
+                    var menuBlock = document.getElementById('menu');
+                    var menu = new Menu('my_menu', 'my_class', menuItems);
+
+                    menuBlock.innerHTML = menu.render();
+                }
+            };
+
+            xhr.send();
+
+        }
+
+        // window.onload - этим мы говорим браузеру, что сначала надо загрузить html
+        // разметку а после уже исполнить наш код. Чтобы не прибегать к этой конструкции,
+        // можно тэг <script> поставить перед закрывающим </body>
+
+    </script>
+</head>
+<body>
+    <div id="menu"></div>
+</body>
+</html>

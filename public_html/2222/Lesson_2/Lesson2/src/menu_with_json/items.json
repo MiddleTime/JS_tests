@@ -1,0 +1,22 @@
+[
+  {
+    "href": "/",
+    "title": "Главная"
+  },
+  {
+    "href": "/about",
+    "title": "О нас"
+  },
+  {
+    "href": "/goods",
+    "title": "Товары"
+  },
+  {
+    "href": "/blog",
+    "title": "Блог"
+  },
+  {
+    "href": "/contacts",
+    "title": "Контакты"
+  }
+]

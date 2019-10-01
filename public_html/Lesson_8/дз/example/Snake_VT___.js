@@ -3,7 +3,7 @@ var FIELD_SIZE_X = 20;
 var FIELD_SIZE_Y = 20;
 var SNAKE_SPEED = 300;      // Интервал между перемещениями змейки
 var FOOD_SPEED = 5000;      // Интервад между созданием еды
-var PROBLEM_SPEED = 10000;   // интервал межуд созданием проблем =)
+var PROBLEM_SPEED = 5000;   // интервал межуд созданием проблем =)
 var snake = [];             // Сама змейка
 var direction = 'y+';       // Направление движения змейки
 var gameIsRunning = false;  // Запущена ли игра
@@ -195,7 +195,7 @@ function pathClear(unit) {
     var check = false;
 
     var unit_classes = unit.getAttribute('class').split(' ');
-    if (!unit_classes.includes('problem-unit')) {
+    if (!unit_classes.includes('problem-unit') {
         check = true;
     }
     return check;

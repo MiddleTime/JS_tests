@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <script>
+        /**
+         * Описываем базовый класс
+         */
+
+        function Container() {
+            this.id = '';
+            this.className = '';
+            this.htmlCode = '';
+        }
+
+        Container.prototype.render = function () {
+            return this.htmlCode;
+        };
+
+        /**
+         * Создаем класс меню
+         */
+
+        function Menu(myId, myClass, myItems) {
+            Container.call(this);
+
+            this.id = myId;
+            this.className = myClass;
+            this.items = myItems || [];
+
+        }
+
+        Menu.prototype = Object.create(Container.prototype);
+        Menu.prototype.constructor = Menu;
+
+        Menu.prototype.render = function () {
+            var result = '<ul class="' + this.className + '" id="' + this.id + '">';
+
+            this.items.forEach(function (item) {
+                result += item.render();
+            });
+
+            result += '</ul>';
+            return result;
+        };
+
+        /**
+         * Описываем класс пунктов меню
+         */
+
+        function MenuItem(myHref, myName) {
+            Container.call(this);
+            this.href = myHref;
+            this.name = myName;
+        }
+
+        MenuItem.prototype = Object.create(Container.prototype);
+        MenuItem.prototype.constructor = MenuItem;
+
+        MenuItem.prototype.render = function () {
+            return '<li><a href="' + this.href + '">'+ this.name +'</a></li>';
+        };
+
+        var menu_1 = new MenuItem('/', 'Главная');
+        var menu_2 = new MenuItem('/catalogue/', 'Каталог');
+        var menu_3 = new MenuItem('/contacts/', 'Контакты');
+
+        var menuItems = [menu_1, menu_2, menu_3];
+
+        var menu = new Menu('myMenu', 'myClass', menuItems);
+
+        // Вариант №2 - более изящный
+        // window.onload = function () {
+        //     var menuBlock = document.getElementById('menu');
+        //     var menu = new Menu('myMenu', 'myClass', [
+        //         new MenuItem('/', 'Главная'),
+        //         new MenuItem('/catalogue/', 'Каталог'),
+        //         new MenuItem('/contacts/', 'Контакты')
+        //     ]);
+        //     menuBlock.innerHTML = menu.render();
+        // }
+
+        window.onload = function () {
+            document.getElementById('menu').innerHTML = menu.render();
+        }
+    </script>
+</head>
+<body>
+    <div id="menu"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ООП</title>
+    <script>
+        /**
+         * Базовый класс
+         */
+        function Phone(model, color) {
+            this.model = model || 'Модель не выбрана';
+            this.color = color || 'Цвет не указан';
+
+            /**
+             * Указываем приватность свойств и метов
+             */
+            // var imei = '12313414';
+            // function getImei() {
+            //     console.log(imei);
+            // }
+            //
+            // this.getImei = getImei();
+            //
+            // this.getInfo = function () {
+            //
+            // }
+        }
+
+        Phone.prototype.getModel = function () {
+            console.log('Информация о телефоне: ', this.model, this.color);
+        };
+
+        /**
+         * Создание объекта на основе базового класса
+         */
+
+        function MyPhone(model, color, memory) {
+            Phone.call(this, model, color);
+            this.memory = memory || 'Объем памяти не указан';
+
+            function getModel() {
+                console.log(this.model);
+            }
+
+            this.getModel = getModel;
+        }
+
+        MyPhone.prototype = Object.create(Phone.prototype);
+        MyPhone.prototype.constructor = Phone;
+        MyPhone.prototype.getMemory = function () {
+            return this.memory;
+        };
+
+        var newPhone = new MyPhone('Sumsung', 'Black', '128Gb');
+        console.log(newPhone);
+        newPhone.getModel();
+        console.log(newPhone.getMemory());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

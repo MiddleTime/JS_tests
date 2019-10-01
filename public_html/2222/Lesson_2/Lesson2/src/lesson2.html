@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <script>
+        /**
+         * Создаем строку в формате JSON
+         */
+
+        var modelJson = '{"model": "Sumsung Galaxy S8", "memory": "64Gb", \
+            "color": "black", "isNew": true}';
+
+        console.log(modelJson);
+        /**
+         * Парсинг JSON в объект
+         */
+
+        var modelTel = JSON.parse(modelJson);
+
+        console.log(modelTel.model);
+
+        modelTel.info = {
+            system: "Android",
+            version: "8",
+            year: 2017
+        };
+
+        modelTel.date = '2017-12-26';
+
+        // console.log(modelTel);
+
+        /**
+         * Преобразуем объект в строку JSON
+         */
+
+        var jsonTel = JSON.stringify(modelTel, null, 4);
+        console.log(jsonTel);
+
+        var workTel = JSON.parse(jsonTel, function (key, value) {
+            console.log(key, '=>', value);
+            return (key === 'date') ? new Date(value) : value;
+        });
+
+        console.log(workTel);
+        console.log(workTel.date.getDate());
+
+        /**
+         * Фильтрация при преобразовании в строку
+         */
+
+        var jsonWorkTel = JSON.stringify(modelTel, ['model', 'memory'], 4);
+
+        // console.log(jsonWorkTel);
+
+        // console.log(jsonTel);
+
+        /**
+         * AJAX
+         * Синхронный запрос
+         * @type {XMLHttpRequest}
+         */
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', './tels.json', false);
+        xhr.send();
+
+        if (xhr.status !== 200) {
+            console.log('Error', xhr.status, xhr.statusText);
+        } else {
+            console.log('Ok!', xhr.statusText, xhr.responseText);
+            var items = JSON.parse(xhr.responseText);
+            console.log(items);
+        }
+
+        /**
+         * Ассинхронный запрос
+         * @type {XMLHttpRequest}
+         */
+
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open('GET', './tels.json', true);
+
+        xhr2.onreadystatechange = function () {
+
+            if(xhr2.readyState !== 4) return;
+
+            if (xhr2.status !== 200) {
+                console.log('Error', xhr2.status, xhr2.statusText);
+            } else {
+                console.log('Ok!', xhr2.statusText, xhr2.responseText);
+                var items2 = JSON.parse(xhr2.responseText);
+                console.log(items2);
+            }
+        };
+
+        xhr2.send();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

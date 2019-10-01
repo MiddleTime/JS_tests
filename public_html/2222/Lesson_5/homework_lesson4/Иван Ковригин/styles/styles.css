@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 1225px;
+  padding: 0 20px 0 20px;
+  font-size: 10px;
+}
+
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.task-wrap {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+
+  background-color: #46995d;
+  border: 1px solid #006400;
+  border-radius: 10px;
+}
+
+.hw-title {
+  margin-bottom: 20px;
+  font-size: 2.2em;
+  color: #ffffff;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+
+  user-select: none;
+  z-index: 1;
+}
+
+/*Дефолтное состояние таба*/
+.tab {
+  margin-right: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 15%;
+  height: 40px;
+
+  background-color: #088124;
+  border: 1px solid #006400;
+  border-radius: 10px 10px 0 0 ;
+
+  font-size: 1.7em;
+  color: #ffffff;
+}
+
+
+/*Состояние выбранного таба*/
+.selected-tab {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+
+  color: #006400;
+}
+
+
+.content-wrap {
+  margin-top: -1px;
+  padding: 20px;
+
+  width: 70%;
+  min-height: 250px;
+
+  background-color: #ffffff;
+  border: 1px solid #006400;
+  border-radius: 0 10px 10px 10px;
+}
+
+.content {
+  display: none;
+  text-indent: 1.5em;
+  font-size: 2em;
+  text-align: justify;
+}
+
+.selected-content {
+  display: block;
+}
+
+#input-form {
+  width: 35%;
+  height: 50px;
+
+  padding: 10px;
+
+  border: 1px solid #006400;
+  border-radius: 10px 10px 10px 10px;
+
+  font-size: 1.4em;
+
+  outline: none;
+}

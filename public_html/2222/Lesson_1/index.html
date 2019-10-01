@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Синтаксическое создание объекта</title>
+    <script>
+        var phone = {
+            model: 'iPhone X',
+            color: 'Space grey',
+            memory: '64Gb',
+            callTo: function (name) {
+                console.log('Звоним', name);
+                return true;
+            }
+        };
+
+        function test(name, comment) {
+            console.log(this, name, comment)
+        }
+
+        /**
+         * call && apply для разового привязывания контекста во время вызова функции
+         */
+        test.call(phone, 'Ivan', 'Some comment');
+        test('Valya', 'Some comment');
+        test.apply(phone, ['Ivan', 'Some comment']);
+
+        var binedTest = test.bind(phone, 'Petr', 'Some comments');
+
+        binedTest('Vasya');
+
+        // test('Петя', 'Комментарий от пользователя');
+        // console.log(phone.callTo('Пете'));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

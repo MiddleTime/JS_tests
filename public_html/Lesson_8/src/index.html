@@ -1,19 +1,15 @@
 <input type="button" value="click" id="b1">
 
 <script>
-	
-	/*function test(){
+/*	
+	function test(){
 		
 		return 2+3;
 	}
 	
 	var x = test()*2;
-	*/
-
-
-	function f(){
-		console.log('f1()');
-	}
+	console.log(x);
+	
 	
 	var f2 = function(a,b){
 		var x = a+b;
@@ -26,9 +22,10 @@
 		};
 	}
 	
-/*	
+*/	
 	//Массивы и анонимные функции
-	
+
+/*	
 var arr = [2,3,4];
 arr.forEach(function(item,i,arr){
 	console.log("Позиция "+i+"="+item+" в массиве "+arr);	
@@ -47,9 +44,10 @@ function outer(){
 }
 
 outer();
-*/
-//Замыкания для анонимных функций
 
+*/
+
+//Замыкания для анонимных функций
 /*
 var b=0;
 function b1(){
@@ -65,14 +63,9 @@ console.log(b1()()());
 console.log(b1()()());
 
 console.log(b);
+
 */
 
-/*
-function f1(){}
-//function f2(){
-	
-}
-*/
 
 /*
 function counterMaker(){
@@ -87,12 +80,12 @@ var counter = counterMaker();
 console.log(counter());
 console.log(counter());
 console.log(counter());
+
 */
 
-/*Неограниченное количество аргументов функции*/
+//Неограниченное количество аргументов функции*/
 
-/*
-function f(){
+/*function f(){
 	for(var i=0;i<arguments.length;i++){
 		console.log(arguments[i]);
 	}
@@ -104,9 +97,10 @@ f(1,2,3,4,5);
 
 
 // Функция как объект!
+
 /*
 function showFullName(obj){
-	alert(this.firstName+" "+this.lastName;
+	alert(this.firstName+" "+this.lastName);
 }
 
 var user = {
@@ -121,10 +115,11 @@ var user2 = {
 
 showFullName.call(user);
 showFullName.call(user2);
+
 */
 
 //Одалживание метода
-/*
+
 var commonShow = function(){
 	console.log("book "+this.title);
 }
@@ -132,10 +127,11 @@ var commonShow = function(){
 var book1 = {title:'land',show:commonShow};
 var book2 = {title:'my life'};
 
-//book1.show();
+book1.show();
 //book2.show = book1.show;
-book1.show.call(book2);//одалживание метода
+//book1.show.call(book2);//одалживание метода
 
+/*
 //Конструктор функции
 var sum = new Function('a,b','return a+b;');
 console.log(sum());

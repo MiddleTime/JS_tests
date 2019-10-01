@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider jQuery</title>
+    <script src="./jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $slides = $('.slider .slide');
+            var $btnLeft = $('#btnLeft');
+            var $btnRight = $('#btnRight');
+            var ACTIVE = 'active';
+            var ACTIVE_DOT = '.' + ACTIVE;
+            var SLIDE_TIME = 2000;
+
+            $slides.not(ACTIVE_DOT).hide();
+
+            $btnLeft.on('click', function () {
+                if($slides.filter(ACTIVE_DOT).prev().hasClass('slide')){
+                    $slides.filter(ACTIVE_DOT)
+                        .removeClass(ACTIVE)
+                        .slideUp(SLIDE_TIME)
+                        .prev()
+                        .addClass(ACTIVE)
+                        .slideDown(SLIDE_TIME);
+                } else {
+                    console.log('No slides');
+                }
+            });
+
+            $btnRight.on('click', function () {
+                if($slides.filter(ACTIVE_DOT).next().hasClass('slide')){
+                    $slides.filter(ACTIVE_DOT)
+                        .removeClass(ACTIVE)
+                        .slideUp(SLIDE_TIME)
+                        .next()
+                        .addClass(ACTIVE)
+                        .slideDown(SLIDE_TIME);
+                } else {
+                    console.log('No slides');
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="slider">
+    <div class="slide">
+        <img src="img/a1.jpg" alt="1">
+    </div>
+    <div class="slide active">
+        <img src="img/a2.jpg" alt="2">
+    </div>
+    <div class="slide">
+        <img src="img/a3.jpg" alt="3">
+    </div>
+    <div class="slide">
+        <img src="img/a4.jpg" alt="4">
+    </div>
+    <div class="slide">
+        <img src="img/a5.jpg" alt="5">
+    </div>
+</div>
+<button id="btnLeft">Влево</button>
+<button id="btnRight">Вправо</button>
+</body>
+</html>
